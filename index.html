@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% from 'macro.html' import course_item %}
+
+{% block header %}
+<h1> header new </h1>
+{% endblock %}
+
+
+
+{% block content %}
+<div> {{ course_item(course) }} </div>
+<p> {{ '=' * 20 }}</p>
+<div> teacher email: {{course.teacher.email | hidden_email }} 
+</div>
+<div> course tags: {{course.tags | length }}</div>
+<div> {{ course_item(course, type="louplus") }} </div>
+<p> {{ '=' * 20 }}</p>
+
+<p> name: {{ course.name}}</p>
+<p> user count: {{course.user_count}}</p>
+<p> teacher: {{course.teacher}}</p>
+<p> is_private: {{ course.is_private}}</p>
+<p> not exist: {{ course.not_exist }} </p>
+{% endblock %}
